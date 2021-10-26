@@ -1,0 +1,27 @@
+{
+  "name": "empresas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cy:chrome": "cypress run --browser chrome --no-exit",
+    "cy:chrome -h": "cypress run --headless --browser chrome --no-exit"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps",
+    "nonGlobalStepDefinitions": false,
+    "testFiles": "**/*.{feature,features}"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.4.0",
+    "cypress-cucumber-preprocessor": "^4.2.0",
+    "cypress-xpath": "^1.6.2",
+    "step_definitions": "cypress/support/steps"
+  },
+  "dependencies": {
+    "cucumber": "^7.0.0-rc.0"
+  }
+}

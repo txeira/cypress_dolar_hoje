@@ -12,13 +12,27 @@ export default class valor{
     }    
     //pega o valor 
     valorDolar() {
-    cy.get(envioElements.valorDolar()).then(($span) => {
-        const creditBalance = $span.text();
-        //cy.log(creditBalance);
-        cy.exec('/home/fabianoteixeira/Documentos/Telegran/telegram-notify.sh -1001557665250 ' + '"' + creditBalance + '"')
+    
+        cy.get(envioElements.valorDolar()).then(($span) => {
+            const creditBalance = $span.text();
+            // envio pelo Telegran
+            cy.request({
+                method: 'POST',
+                url: 'https://api.telegram.org/bot1851827275:AAEkZdqZ-Egc9wOlvDZXoxCSSnfj1k1T-gc/sendMessage',
+                headers:{
+                   'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                form: true,
+                body:{
+                    'chat_id':'-1001557665250',
+                    'cdisable_web_page_preview':'1',
+                    'parse_mode':'markdown',
+                    'text':creditBalance,
 
+                  },
+           }).then(function(response){
+                expect(response.status).to.equal(200);
+                 console.log(response.body);
         })
-
-        }
-
-}
+    })
+}}
