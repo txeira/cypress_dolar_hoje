@@ -18,7 +18,7 @@ export default class valor{
             // envio pelo Telegran
             cy.request({
                 method: 'POST',
-                url: 'https://api.telegram.org/bot1851827275:AAEkZdqZ-Egc9wOlvDZXoxCSSnfj1k1T-gc/sendMessage',
+                url: 'https://api.telegram.org/bot"Chave do Bot"/sendMessage',
                 headers:{
                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
